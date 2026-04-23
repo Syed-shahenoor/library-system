@@ -136,7 +136,7 @@ async function fetchIssues() {
         const tbody = document.querySelector('#issuesTable tbody');
         
         if (issues.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="7" style="text-align: center">No records found ${mId ? 'for member ID ' + mId : 'yet'}</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8" style="text-align: center">No records found ${mId ? 'for member ID ' + mId : 'yet'}</td></tr>`;
             return;
         }
 
@@ -144,6 +144,7 @@ async function fetchIssues() {
             <tr>
                 <td>${i.id}</td>
                 <td>${i.book.title} (ID: ${i.book.id})</td>
+                <td>${i.member.name} (ID: ${i.member.id})</td>
                 <td>${i.issueDate}</td>
                 <td>${i.dueDate}</td>
                 <td>${i.returnDate || '-'}</td>
