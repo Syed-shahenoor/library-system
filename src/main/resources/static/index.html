@@ -33,7 +33,7 @@
                     <table class="data-table" id="booksTable">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Book ID</th>
                                 <th>Title</th>
                                 <th>Author</th>
                                 <th>ISBN</th>
@@ -58,7 +58,7 @@
                     <table class="data-table" id="membersTable">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Member ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -81,7 +81,7 @@
                 <div class="search-member-box">
                     <label>View records for member ID:</label>
                     <div class="search-row">
-                        <input type="number" id="searchMemberId" placeholder="e.g. 1">
+                        <input type="number" id="searchMemberId" placeholder="Enter Member ID (e.g., 1)">
                         <button class="secondary-btn" onclick="fetchIssues()">Search</button>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                     <table class="data-table" id="issuesTable">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Transaction ID</th>
                                 <th>Book Title</th>
                                 <th>Issue Date</th>
                                 <th>Due Date</th>
@@ -178,12 +178,12 @@
             </div>
             <form id="issueForm" onsubmit="issueBook(event)">
                 <div class="form-group">
-                    <label>Book ID</label>
-                    <input type="number" id="issueBookId" required>
+                    <label>Book ID to Issue</label>
+                    <input type="number" id="issueBookId" placeholder="Enter Book ID (find from Books tab)" required>
                 </div>
                 <div class="form-group">
-                    <label>Member ID</label>
-                    <input type="number" id="issueMemberId" required>
+                    <label>Member ID receiving book</label>
+                    <input type="number" id="issueMemberId" placeholder="Enter Member ID (find from Members tab)" required>
                 </div>
                 <button type="submit" class="submit-btn">Complete Issue</button>
             </form>

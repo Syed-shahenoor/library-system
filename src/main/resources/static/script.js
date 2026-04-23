@@ -11,6 +11,7 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
         
         if(e.target.dataset.target === 'books-view') loadBooks();
         if(e.target.dataset.target === 'members-view') loadMembers();
+        if(e.target.dataset.target === 'issues-view') fetchIssues();
     });
 });
 
@@ -127,15 +128,15 @@ async function issueBook(e) {
 
 async function fetchIssues() {
     const mId = document.getElementById('searchMemberId').value;
-    if(!mId) return;
     
     try {
-        const res = await fetch(`${API_BASE}/library/member/${mId}`);
+        const url = mId ? `${API_BASE}/library/member/${mId}` : `${API_BASE}/library/all`;
+        const res = await fetch(url);
         const issues = await res.json();
         const tbody = document.querySelector('#issuesTable tbody');
         
         if (issues.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="7" style="text-align: center">No records found for member ID ${mId}</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align: center">No records found ${mId ? 'for member ID ' + mId : 'yet'}</td></tr>`;
             return;
         }
 

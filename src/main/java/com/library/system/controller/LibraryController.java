@@ -25,6 +25,11 @@ public class LibraryController {
         return ResponseEntity.ok(libraryService.returnBook(bookId, memberId));
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<IssueRecord>> getAllIssues() {
+        return ResponseEntity.ok(libraryService.getAllIssues());
+    }
+
     @GetMapping("/member/{memberId}")
     public ResponseEntity<List<IssueRecord>> getIssueRecordsByMember(@PathVariable Long memberId) {
         return ResponseEntity.ok(libraryService.getIssueRecordsByMember(memberId));

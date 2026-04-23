@@ -64,4 +64,8 @@ public class LibraryService {
     public List<IssueRecord> getIssueRecordsByMember(Long memberId) {
         return issueRecordRepository.findByMemberId(memberId);
     }
+
+    public List<IssueRecord> getAllIssues() {
+        return issueRecordRepository.findAll();
+    }
 }
